@@ -23,7 +23,7 @@ namespace ClientApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hello world");
+            MessageBox.Show("Hello world");//All is good.
         }
     }
 }
