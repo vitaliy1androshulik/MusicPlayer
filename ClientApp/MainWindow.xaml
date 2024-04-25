@@ -32,7 +32,7 @@
                 <RowDefinition Height="3.5*"></RowDefinition>
                 <RowDefinition ></RowDefinition>
             </Grid.RowDefinitions>
-            <DataGrid Grid.Row="1" Grid.Column="1" x:Name="DataGridBase" Grid.Column="1"
+            <DataGrid Grid.Row="1" x:Name="DataGridBase" Grid.Column="1"
                   Grid.ColumnSpan="3" IsReadOnly="True" ItemsSource="{Binding TracksToFind}" 
                   AutoGenerateColumns="False"
                   >
