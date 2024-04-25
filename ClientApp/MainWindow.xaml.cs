@@ -25,5 +25,10 @@ namespace ClientApp
         {
             MessageBox.Show("Hello world");
         }
+
+        private void Button_ImageFailed(object sender, ExceptionRoutedEventArgs e)
+        {
+
+        }
     }
 }

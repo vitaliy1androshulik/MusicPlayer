@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ClientApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Grid>
+    <!--<Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -21,5 +21,39 @@
         <Button x:Name="BtnPlayStop" HorizontalAlignment="Right" Height="50" Width="50" Grid.Column="1" Grid.Row="1"></Button>
         <Button x:Name="BtnNextSong" HorizontalAlignment="Center" Height="50" Width="50" Grid.Column="2" Grid.Row="1"></Button>
         <Button x:Name="BtnPreviousSong" HorizontalAlignment="Left" Height="50" Width="50" Grid.Column="3" Grid.Row="1"></Button>
+    </Grid>-->
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="7*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.2*"></RowDefinition>
+                <RowDefinition Height="3.5*"></RowDefinition>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
+            <ListBox Margin="10" Grid.Row="1"></ListBox>
+            <DockPanel>
+                <Label Margin="100,10,0,0" FontSize="40" >Playlist name</Label>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Margin="5" Grid.Row="2">
+                <Button Margin="160,0,0,0" Background="Transparent" Width="70">
+                    <Image Source="\Image\left.png"></Image>
+                </Button>
+                <Button Background="Transparent" Width="70">
+                    <Image  Source="\Image\play.png"></Image>
+                </Button>
+                <Button Background="Transparent" DockPanel.Dock="Left" Width="70">
+                    <Image Source="\Image\right.png"></Image>
+                </Button>
+            </DockPanel>
+        </Grid>
+        
     </Grid>
 </Window>
