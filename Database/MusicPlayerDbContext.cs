@@ -13,7 +13,6 @@ namespace ClientApp
     public class MusicPlayerDbContext : DbContext
     {
         public DbSet<Track> Tracks { get; set; }
-        public DbSet<Author> Autors { get; set; }
         public DbSet<PlayList> PlayLists { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -33,14 +32,6 @@ namespace ClientApp
         {
             base.OnModelCreating(modelBuilder);
 
-            //one to one
-            modelBuilder.Entity<Track>()
-                .HasOne(f => f.Author)
-                .WithMany(f => f.Tracks)
-                .HasForeignKey(f => f.AuthorId);
-
-
-
             //many to many
 
             modelBuilder.Entity<Track>()
@@ -48,14 +39,8 @@ namespace ClientApp
                 .WithMany(c => c.Tracks);
 
 
-            modelBuilder.SeedAuthors();
             modelBuilder.SeedPlayLists();
             modelBuilder.SeedTracks();
-
-
-
-
-
         }
     }
 }
