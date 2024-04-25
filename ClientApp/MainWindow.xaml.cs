@@ -91,5 +91,10 @@ namespace ClientApp
             }
 
         }
+
+        private void Button_ImageFailed(object sender, ExceptionRoutedEventArgs e)
+        {
+
+        }
     }
 }
