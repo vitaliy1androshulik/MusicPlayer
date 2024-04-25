@@ -6,22 +6,6 @@
         xmlns:local="clr-namespace:ClientApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <!--<Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="120"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions> 
-            <RowDefinition Height="340"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-
-        <Button x:Name="BtnPlayStop" HorizontalAlignment="Right" Height="50" Width="50" Grid.Column="1" Grid.Row="1"></Button>
-        <Button x:Name="BtnNextSong" HorizontalAlignment="Center" Height="50" Width="50" Grid.Column="2" Grid.Row="1"></Button>
-        <Button x:Name="BtnPreviousSong" HorizontalAlignment="Left" Height="50" Width="50" Grid.Column="3" Grid.Row="1"></Button>
-    </Grid>-->
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -54,6 +38,40 @@
                 </Button>
             </DockPanel>
         </Grid>
+      
+        <DataGrid x:Name="DataGridBase" Grid.Column="1"
+                  Grid.ColumnSpan="3" IsReadOnly="True" ItemsSource="{Binding TracksToFind}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn FontSize="17" Header="Name" Width="1*"  Binding="{Binding Name}"/>
+                <DataGridTextColumn FontSize="17" Header="Author" Width="1*" Binding="{Binding Author}" />
+                <DataGridTextColumn FontSize="17" Header="Genre"  Width="0.5*" Binding="{Binding Genre}" />
+                <DataGridTextColumn FontSize="17" Header="Year"  Width="0.5*" Binding="{Binding Year}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <Button Height="50" x:Name="BtnUpdate" Click="BtnUpdate_Click">Update</Button>
+        <Button x:Name="BtnAddSong" Click="BtnAddSong_Click"
+                Height="50" Width="75" HorizontalAlignment="Left" 
+                Grid.Column="1" Grid.Row="1">Add</Button>
+        
+        <Button x:Name="BtnNextSong" HorizontalAlignment="Right" 
+                Height="50" Width="50" Grid.Column="1" 
+                Grid.Row="1"></Button>
+        <Button Click="BtnPlayStop_Click" x:Name="BtnPlayStop" 
+                HorizontalAlignment="Center" Height="50" Width="50" 
+                Grid.Column="2" Grid.Row="1"></Button>
+        <Button x:Name="BtnPreviousSong" HorizontalAlignment="Left" 
+                Height="50" Width="50" Grid.Column="3" 
+                Grid.Row="1"></Button>
+
+        <TextBox x:Name="TextBoxSeconds" Grid.Row="1" 
+                 Height="75" Width="75" FontSize="25"></TextBox>
+        <DockPanel Grid.Column="4" Grid.Row="1" HorizontalAlignment="Right" Width="175" Height="50">
+            <MediaElement 
+              Source="{Binding TrackSourcePlayNow}" Name="mediaElement" 
+              LoadedBehavior="Manual" Stretch="Fill"/>
+        </DockPanel>
         
     </Grid>
 </Window>

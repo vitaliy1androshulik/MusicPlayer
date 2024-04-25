@@ -21,7 +21,7 @@ namespace Database.Helpers
                 Year = 2013,
                 Genre = "pop",
                 Language = "Ukrainian",
-                AuthorId = 1,
+                Author = "Oleg Vinnik",
                 FilePath = "wolf.wav"
 
             },
@@ -32,7 +32,7 @@ namespace Database.Helpers
                 Year = 2017,
                 Genre = "Latin pop",
                 Language = "Spanish",
-                AuthorId = 2,
+                Author = "Luis Fonsi",
                 FilePath = "Despacito.wav"
             },
             new Track
@@ -42,41 +42,8 @@ namespace Database.Helpers
                 Year = 1985,
                 Genre = "Pop",
                 Language = "English",
-                AuthorId = 3,
+                Author = "Modern Talking",
                 FilePath = "CheriCheriLady.wav"
-            }
-
-
-            });
-        }
-        public static void SeedAuthors(this ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Author>().HasData(new Author[]
-            {
-            new Author
-            {
-                Id = 1,
-                Name = "Oleg",
-                SurName = "Vinnik",
-                LastName = "Anatolyevich",
-                Nationality = "Ukraine",
-            },
-            new Author
-            {
-                Id = 2,
-                Name = "Luis",
-                SurName = "Fonsi",
-                LastName = "Rodriguez",
-                Nationality = "Puerto Rico",
-            },
-
-            new Author
-            {
-                Id = 3,
-                Name = "Dieter",
-                SurName = "Gunter",
-                LastName = "Bohlen",
-                Nationality = "Germany",
             }
             });
         }
@@ -90,12 +57,7 @@ namespace Database.Helpers
                 Name = "My",
                 Genre = "to my taste",
                 CountOfTracks = 3,
-
             }
-
-
-
-
             });
         }
     }

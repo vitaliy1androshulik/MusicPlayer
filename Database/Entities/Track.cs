@@ -15,8 +15,7 @@ namespace Database.Entities
         [Required, MaxLength(100)]
         public string Language { get; set; }
 
-        public Author Author { get; set; }
-        public int AuthorId { get; set; }
+        public string Author { get; set; }
 
         public ICollection<PlayList> PlayLists { get; set; }
 
