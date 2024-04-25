@@ -22,12 +22,14 @@ namespace ClientApp
     {
         Viewmodel model;
         MusicPlayerDbContext context;
+        bool pause;
         public MainWindow()
         {
             InitializeComponent();
             model=new Viewmodel();
             this.DataContext = model;
-            
+            pause = true;
+
             context=new MusicPlayerDbContext();
 
         }
@@ -38,29 +40,26 @@ namespace ClientApp
             
         }
 
-        private void BtnNextSong_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void BtnPlayStop_Click(object sender, RoutedEventArgs e)
         {
-            Track selectedTrack = DataGridBase.SelectedItem as Track;
-            model.TrackSourcePlayNow = selectedTrack.FilePath;
-            mediaElement.Play();
-            //OpenFileDialog openFileDialog = new OpenFileDialog();
-            //if (openFileDialog.ShowDialog() == true)
-            //{
-            //
-            //    //mediaElement.d
-            //    //mediaElement.LoadedBehavior = MediaState.Manual;
-            //    mediaElement.Source = new Uri(openFileDialog.FileName, UriKind.RelativeOrAbsolute);
-            //    mediaElement.Play();
-            //    TextBoxSeconds.Text=mediaElement.Position.TotalSeconds.ToString();
-            //}
-            
+            Play_Music();
         }
-
+        private void Play_Music()
+        {
+            if (pause == true)
+            {
+                Track selectedTrack = DataGridBase.SelectedItem as Track;
+                model.TrackSourcePlayNow = selectedTrack.FilePath;
+                mediaElement.Play();
+                pause = false;
+            }
+            else if (pause == false)
+            {
+                mediaElement.Pause();
+                pause = true;
+            }
+        }
         private void BtnAddSong_Click(object sender, RoutedEventArgs e)
         {
             AddSongWindow addSongWindow = new AddSongWindow();
@@ -89,12 +88,36 @@ namespace ClientApp
                     model.TrackToFindAdd((Track)track);
                 }
             }
-
         }
 
         private void Button_ImageFailed(object sender, ExceptionRoutedEventArgs e)
         {
 
+        }
+        private void BtnNextSong_Click(object sender, RoutedEventArgs e)
+        {
+            DataGridBase.SelectedIndex++;
+            Play_Music();
+        }
+        private void BtnPreviousSong_Click(object sender, RoutedEventArgs e)
+        {
+            DataGridBase.SelectedIndex--;
+            Play_Music();
+        }
+
+        private void BtnRemoveTrack_Click(object sender, RoutedEventArgs e)
+        {
+            if(DataGridBase.SelectedItem!=null)
+            {
+                Track t = DataGridBase.SelectedItem as Track;
+                model.RemoveTrack(t);
+                using (MusicPlayerDbContext Context = new MusicPlayerDbContext())
+                {
+                    Context.Tracks.Remove(t);
+                    Context.SaveChanges();
+                }
+                UpdateTracksList();
+            }
         }
     }
 }

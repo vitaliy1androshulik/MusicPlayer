@@ -46,37 +46,40 @@
             </Grid.RowDefinitions>
             <DataGrid Grid.Row="1" x:Name="DataGridBase" Grid.Column="1"
                   Grid.ColumnSpan="3" IsReadOnly="True" ItemsSource="{Binding TracksToFind}" 
-                  AutoGenerateColumns="False">
-                <DataGrid.CellStyle>
-                    <Style/>
-                </DataGrid.CellStyle>
-                <DataGrid.Columns>
-                    <DataGridTextColumn FontSize="17" Header="Name" Width="1*"  Binding="{Binding Name}"/>
-                    <DataGridTextColumn FontSize="17" Header="Author" Width="1*" Binding="{Binding Author}" />
-                    <DataGridTextColumn FontSize="17" Header="Genre"  Width="0.5*" Binding="{Binding Genre}" />
-                    <DataGridTextColumn FontSize="17" Header="Year"  Width="0.5*" Binding="{Binding Year}" />
-                    <DataGridTemplateColumn>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button x:Name="BtnRemoveTrack" Content="X"></Button>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
+                  AutoGenerateColumns="False"
+                  >
+            <DataGrid.CellStyle>
+                <Style/>
+            </DataGrid.CellStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn FontSize="17" Header="Name" Width="1*"  Binding="{Binding Name}"/>
+                <DataGridTextColumn FontSize="17" Header="Author" Width="1*" Binding="{Binding Author}" />
+                <DataGridTextColumn FontSize="17" Header="Genre"  Width="0.5*" Binding="{Binding Genre}" />
+                <DataGridTextColumn FontSize="17" Header="Year"  Width="0.5*" Binding="{Binding Year}" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnRemoveTrack" Click="BtnRemoveTrack_Click" Content="X"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+          
 
             <DockPanel>
                 <Label Margin="100,10,0,0" FontSize="40" ></Label>
             </DockPanel>
 
             <DockPanel LastChildFill="False" Margin="5" Grid.Row="2">
-                <Button x:Name="BtnPreviousSong" Padding="10"  Margin="160,0,0,0" Background="Transparent" Width="70">
+                <Button x:Name="BtnPreviousSong" Click="BtnPreviousSong_Click"  Padding="10"  Margin="160,0,0,0" Background="Transparent" Width="70">
                     <Image Source="\Image\left.png"></Image>
                 </Button>
                 <Button Click="BtnPlayStop_Click" x:Name="BtnPlayStop" Padding="13" Background="Transparent" Width="70">
                     <Image  Source="\Image\play.png"></Image>
                 </Button>
-                <Button x:Name="BtnNextSong" Padding="10" Background="Transparent" DockPanel.Dock="Left" Width="70">
+                <Button x:Name="BtnNextSong" Padding="10" Background="Transparent" DockPanel.Dock="Left" 
+                        Click="BtnNextSong_Click" Width="70">
                     <Image Source="\Image\right.png"></Image>
                 </Button>
 

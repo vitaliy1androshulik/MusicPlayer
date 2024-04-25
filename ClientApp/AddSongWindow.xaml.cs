@@ -53,6 +53,7 @@ namespace ClientApp
                 track.Genre = model.TrackGenre;
                 track.Language = model.TrackLanguage;
                 track.Author = model.TrackAuthor;
+                track.Year = model.TrackYear;
                 using (MusicPlayerDbContext Context = new MusicPlayerDbContext())
                 {
                     Track TrackForDB = Context.Tracks.FirstOrDefault(u => u.Name == track.Name);

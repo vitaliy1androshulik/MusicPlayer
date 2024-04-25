@@ -34,13 +34,17 @@ namespace ClientApp
 
         public IEnumerable<Track> Tracks => tracks;
         public IEnumerable<Track> TracksToFind => tracksToFind;
-        public void TrackToFindAdd(Track tr)
+        public void TrackToFindAdd(Track track)
         {
-            tracksToFind.Add(tr);
+            tracksToFind.Add(track);
         }
-        public void AddTrack(Track tr)
+        public void AddTrack(Track track)
         {
-            tracks.Add(tr);
+            tracks.Add(track);
+        }
+        public void RemoveTrack(Track track)
+        {
+            tracks.Remove(track);
         }
         public void TrackToFindClear()
         {
