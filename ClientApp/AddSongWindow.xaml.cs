@@ -1,4 +1,5 @@
 ﻿using Database.Entities;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.VisualBasic.ApplicationServices;
 using Microsoft.Win32;
 using System;
@@ -51,6 +52,7 @@ namespace ClientApp
                 track.Name = model.TrackName;
                 track.Genre = model.TrackGenre;
                 track.Language = model.TrackLanguage;
+                track.Author = model.TrackAuthor;
                 using (MusicPlayerDbContext Context = new MusicPlayerDbContext())
                 {
                     Track TrackForDB = Context.Tracks.FirstOrDefault(u => u.Name == track.Name);
@@ -70,6 +72,7 @@ namespace ClientApp
                         model.TrackName = null;
                         model.TrackLanguage = null;
                         model.FilePath = null;
+                        model.TrackAuthor = null;
                     }
 
 

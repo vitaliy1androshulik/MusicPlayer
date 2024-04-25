@@ -29,6 +29,7 @@ namespace ClientApp
         public string TrackGenre { get; set; }
         public int TrackYear { get; set; }
         public string TrackLanguage { get; set; }
+        public string TrackAuthor { get; set; }
         public string FilePath { get; set; }     
 
         public IEnumerable<Track> Tracks => tracks;
