@@ -76,22 +76,22 @@
 
            <DockPanel LastChildFill="False" Margin="5" Grid.Row="2">
                
-                <Button BorderBrush="Transparent"  x:Name="BtnPreviousSong" Click="BtnPreviousSong_Click"  Padding="10"  Margin="160,0,0,0" Background="Transparent" Width="70">
-                    <Image Source="\Image\left.png"></Image>
+                <Button BorderBrush="Transparent"  x:Name="BtnPreviousSong" Click="BtnPreviousSong_Click"  Padding="0"  Margin="160,0,0,0" Background="Transparent" Width="70">
+                    <Image Source="\Image\Left_new.png"></Image>
                 </Button>
                 <Button BorderBrush="Transparent" Click="BtnPlayStop_Click" x:Name="BtnPlayStop" Padding="13" Background="Transparent" Width="70">
                     <Image  Source="/Image/play.png"></Image>
                 </Button>
-                <Button BorderBrush="Transparent" x:Name="BtnNextSong" Padding="10" Background="Transparent" DockPanel.Dock="Left" 
+                <Button BorderBrush="Transparent" x:Name="BtnNextSong" Padding="0" Background="Transparent" DockPanel.Dock="Left" 
                         Click="BtnNextSong_Click" Width="70">
-                    <Image Source="/Image/right.png"></Image>
+                    <Image Source="/Image/Right_new.png"></Image>
                 </Button>
 
     <Button DockPanel.Dock="Right" x:Name="BtnAddSong" Click="BtnAddSong_Click" Height="50" Width="75" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1">Add</Button>
 
     <MediaElement DockPanel.Dock="Right" Width="50" Source="{Binding TrackSourcePlayNow}" Name="mediaElement" LoadedBehavior="Manual" Stretch="Fill"/>
 
-    <Slider DockPanel.Dock="Right" Width="160" Margin="-35" VerticalAlignment="Center" Minimum="0" Maximum="1" Value="{Binding Volume, ElementName=mediaElement}" />
+    <Slider DockPanel.Dock="Right" Width="160" Margin="35" VerticalAlignment="Center" Minimum="0" Maximum="1" Value="{Binding Volume, ElementName=mediaElement}" />
 </DockPanel>
             
 
