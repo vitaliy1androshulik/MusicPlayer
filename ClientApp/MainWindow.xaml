@@ -31,6 +31,9 @@
             <Button Grid.Row="1" Margin="13">
                 <Image Source="\Image\search.png"></Image>
             </Button>
+            <Button Grid.Row="2" Margin="13">
+                <Image Source="\Image\list.png"></Image>
+            </Button>
             <Button  Grid.Row="5" Margin="8" x:Name="BtnUpdate" Click="BtnUpdate_Click" Content="update">
 
             </Button>
@@ -71,26 +74,26 @@
                 <Label Margin="100,10,0,0" FontSize="40" ></Label>
             </DockPanel>
 
-            <DockPanel LastChildFill="False" Margin="5" Grid.Row="2">
-                <Button x:Name="BtnPreviousSong" Click="BtnPreviousSong_Click"  Padding="10"  Margin="160,0,0,0" Background="Transparent" Width="70">
-                    <Image Source="\Image\left.png"></Image>
-                </Button>
-                <Button Click="BtnPlayStop_Click" x:Name="BtnPlayStop" Padding="13" Background="Transparent" Width="70">
-                    <Image  Source="\Image\play.png"></Image>
-                </Button>
-                <Button x:Name="BtnNextSong" Padding="10" Background="Transparent" DockPanel.Dock="Left" 
-                        Click="BtnNextSong_Click" Width="70">
-                    <Image Source="\Image\right.png"></Image>
-                </Button>
+           <DockPanel LastChildFill="False" Margin="5" Grid.Row="2">
+               
+    <Button x:Name="BtnPreviousSong" Click="BtnPreviousSong_Click" Padding="10" Margin="160,0,0,0" Background="Transparent" Width="70">
+        <Image Source="\Image\left.png"></Image>
+    </Button>
+    <Button Click="BtnPlayStop_Click" x:Name="BtnPlayStop" Padding="13" Background="Transparent" Width="70">
+        <Image Source="\Image\play.png"></Image>
+    </Button>
+    <Button x:Name="BtnNextSong" Padding="10" Background="Transparent" DockPanel.Dock="Left" Click="BtnNextSong_Click" Width="70">
+        <Image Source="\Image\right.png"></Image>
+    </Button>
 
-                <Button DockPanel.Dock="Right" x:Name="BtnAddSong" Click="BtnAddSong_Click"
-                Height="50" Width="75" HorizontalAlignment="Left" 
-                Grid.Column="1" Grid.Row="1">Add</Button>
+    <Button DockPanel.Dock="Right" x:Name="BtnAddSong" Click="BtnAddSong_Click" Height="50" Width="75" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1">Add</Button>
 
-                <MediaElement DockPanel.Dock="Right" Width="50" 
-              Source="{Binding TrackSourcePlayNow}" Name="mediaElement" 
-              LoadedBehavior="Manual" Stretch="Fill"/>
-            </DockPanel>
+    <MediaElement DockPanel.Dock="Right" Width="50" Source="{Binding TrackSourcePlayNow}" Name="mediaElement" LoadedBehavior="Manual" Stretch="Fill"/>
+
+    <Slider DockPanel.Dock="Right" Width="160" Margin="-35" VerticalAlignment="Center" Minimum="0" Maximum="1" Value="{Binding Volume, ElementName=mediaElement}" />
+</DockPanel>
+
+
         </Grid>
     </Grid>
 </Window>
