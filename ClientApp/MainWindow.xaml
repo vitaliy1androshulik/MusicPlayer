@@ -91,7 +91,7 @@
 
     <MediaElement DockPanel.Dock="Right" Width="50" Source="{Binding TrackSourcePlayNow}" Name="mediaElement" LoadedBehavior="Manual" Stretch="Fill"/>
 
-    <Slider DockPanel.Dock="Right" Width="160" Margin="35" VerticalAlignment="Center" Minimum="0" Maximum="1" Value="{Binding Volume, ElementName=mediaElement}" />
+    <Slider DockPanel.Dock="Right" Width="160" Margin="-35" VerticalAlignment="Center" Minimum="0" Maximum="1" Value="{Binding Volume, ElementName=mediaElement}" />
 </DockPanel>
             
 
