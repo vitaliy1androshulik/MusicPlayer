@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientApp"
         mc:Ignorable="d"
-        Title="AddSongWindow" Height="450" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="AddSongWindow" Height="400" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="Beige">
     <DockPanel>
         <Label DockPanel.Dock="Top" HorizontalAlignment="Center"
                  FontSize="25">Add Track</Label>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="120"></ColumnDefinition>
+                <ColumnDefinition Width="130"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -24,29 +24,29 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Label FontSize="25">Name : </Label>
-            <TextBox Text="{Binding TrackName}" x:Name="TextBoxTrackName" Margin="0,10,0,0" Grid.Column="1" Height="25" VerticalAlignment="Top"></TextBox>
+            <TextBox VerticalAlignment="Center" Text="{Binding TrackName}" x:Name="TextBoxTrackName" Margin="0,0,10,0" Grid.Column="1" Height="25"></TextBox>
 
             <Label FontSize="25" Grid.Row="1">Author :</Label>
-            <TextBox Text="{Binding TrackAuthor}" x:Name="TextBoxTrackAuthor" Margin="0,10,0,0" Grid.Column="1" Grid.Row="1" Height="25" VerticalAlignment="Top"></TextBox>
+            <TextBox VerticalAlignment="Center" Text="{Binding TrackAuthor}" x:Name="TextBoxTrackAuthor" Margin="0,0,10,0" Grid.Column="1" Grid.Row="1" Height="25" ></TextBox>
 
             <Label FontSize="25" Grid.Row="2">Year :</Label>
-            <TextBox Text="{Binding TrackYear}" x:Name="TextBoxTrackYear" Margin="0,10,0,0" Grid.Column="1" Height="25" VerticalAlignment="Top" Grid.Row="2"></TextBox>
+            <TextBox VerticalAlignment="Center" Text="{Binding TrackYear}" x:Name="TextBoxTrackYear" Margin="0,0,10,0" Grid.Column="1" Height="25" Grid.Row="2"></TextBox>
 
             <Label FontSize="25" Grid.Row="3">Genre :</Label>
-            <TextBox Text="{Binding TrackGenre}" x:Name="TextBoxTrackGenre" Margin="0,10,0,0" Grid.Column="1" Height="25" VerticalAlignment="Top" Grid.Row="3"></TextBox>
+            <TextBox Text="{Binding TrackGenre}" x:Name="TextBoxTrackGenre" Margin="0,0,10,0" Grid.Column="1" Height="25" VerticalAlignment="Center" Grid.Row="3"></TextBox>
 
             <Label FontSize="25" Grid.Row="4">Language :</Label>
-            <TextBox Text="{Binding TrackLanguage}" x:Name="TextBoxTrackLanguage" Margin="0,10,0,0" Grid.Column="1" Height="25" 
-         VerticalAlignment="Top" Grid.Row="4" Width="375" HorizontalAlignment="Left"></TextBox>
+            <TextBox Text="{Binding TrackLanguage}" x:Name="TextBoxTrackLanguage" Margin="0,0,10,0" Grid.Column="1" Height="25" 
+         VerticalAlignment="Center" Grid.Row="4" Width="360" HorizontalAlignment="Left"></TextBox>
 
             <Label FontSize="25" Grid.Row="5">File path :</Label>
-            <TextBox Text="{Binding FilePath}" x:Name="TextBoxTrackFilePath" Margin="0,10,0,0" Grid.Column="1" Height="25" 
-                     VerticalAlignment="Top" Grid.Row="5" Width="275" HorizontalAlignment="Left"></TextBox>
-            <Button x:Name="BtnFilePath" Click="BtnFilePath_Click" Grid.Column="1" Grid.Row="5" Width="75" Height="30" 
+            <TextBox  Text="{Binding FilePath}" x:Name="TextBoxTrackFilePath" Grid.Column="1" Height="25" 
+                     VerticalAlignment="Center" Grid.Row="5" Width="275" HorizontalAlignment="Left"></TextBox>
+            <Button Margin="0,0,10,0" x:Name="BtnFilePath" Click="BtnFilePath_Click" Grid.Column="1" Grid.Row="5" Width="75" Height="30" 
                     HorizontalAlignment="Right">Source</Button>
 
-            <Button x:Name="BtnAddTrack" Click="BtnAddTrack_Click" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Right" Width="90"
-                    VerticalAlignment="Center" Height="50">Add</Button>
+            <Button x:Name="BtnAddTrack" Click="BtnAddTrack_Click" Grid.Column="1" Margin="0,10,10,0" Grid.Row="6" HorizontalAlignment="Right" Width="90"
+                    VerticalAlignment="Top" Height="50">Add</Button>
         </Grid>
     </DockPanel>
 </Window>

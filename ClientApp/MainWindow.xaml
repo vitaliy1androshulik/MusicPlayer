@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="Beige">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -25,10 +25,10 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Button Grid.Row="0" Margin="13">
+            <Button BorderBrush="Transparent" Background="Transparent" Grid.Row="0" Margin="13">
                 <Image Source="\Image\home.png"></Image>
             </Button>
-            <Button Grid.Row="1" Margin="13">
+            <Button BorderBrush="Transparent" Background="Transparent" Grid.Row="1" Margin="13">
                 <Image Source="\Image\search.png"></Image>
             </Button>
             <Button Grid.Row="2" Margin="13">
@@ -47,7 +47,7 @@
                 <RowDefinition Height="3.5*"></RowDefinition>
                 <RowDefinition ></RowDefinition>
             </Grid.RowDefinitions>
-            <DataGrid Grid.Row="1" x:Name="DataGridBase" Grid.Column="1"
+            <DataGrid Background="Beige" Grid.Row="1" x:Name="DataGridBase" Grid.Column="1"
                   Grid.ColumnSpan="3" IsReadOnly="True" ItemsSource="{Binding TracksToFind}" 
                   AutoGenerateColumns="False"
                   >
@@ -55,10 +55,10 @@
                 <Style/>
             </DataGrid.CellStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn FontSize="17" Header="Name" Width="1*"  Binding="{Binding Name}"/>
-                <DataGridTextColumn FontSize="17" Header="Author" Width="1*" Binding="{Binding Author}" />
-                <DataGridTextColumn FontSize="17" Header="Genre"  Width="0.5*" Binding="{Binding Genre}" />
-                <DataGridTextColumn FontSize="17" Header="Year"  Width="0.5*" Binding="{Binding Year}" />
+                <DataGridTextColumn  FontSize="17" Header="Name" Width="1*"  Binding="{Binding Name}"/>
+                <DataGridTextColumn  FontSize="17" Header="Author" Width="1*" Binding="{Binding Author}" />
+                <DataGridTextColumn  FontSize="17" Header="Genre"  Width="0.5*" Binding="{Binding Genre}" />
+                <DataGridTextColumn  FontSize="17" Header="Year"  Width="0.5*" Binding="{Binding Year}" />
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -76,15 +76,16 @@
 
            <DockPanel LastChildFill="False" Margin="5" Grid.Row="2">
                
-    <Button x:Name="BtnPreviousSong" Click="BtnPreviousSong_Click" Padding="10" Margin="160,0,0,0" Background="Transparent" Width="70">
-        <Image Source="\Image\left.png"></Image>
-    </Button>
-    <Button Click="BtnPlayStop_Click" x:Name="BtnPlayStop" Padding="13" Background="Transparent" Width="70">
-        <Image Source="\Image\play.png"></Image>
-    </Button>
-    <Button x:Name="BtnNextSong" Padding="10" Background="Transparent" DockPanel.Dock="Left" Click="BtnNextSong_Click" Width="70">
-        <Image Source="\Image\right.png"></Image>
-    </Button>
+                <Button BorderBrush="Transparent"  x:Name="BtnPreviousSong" Click="BtnPreviousSong_Click"  Padding="10"  Margin="160,0,0,0" Background="Transparent" Width="70">
+                    <Image Source="\Image\left.png"></Image>
+                </Button>
+                <Button BorderBrush="Transparent" Click="BtnPlayStop_Click" x:Name="BtnPlayStop" Padding="13" Background="Transparent" Width="70">
+                    <Image  Source="/Image/play.png"></Image>
+                </Button>
+                <Button BorderBrush="Transparent" x:Name="BtnNextSong" Padding="10" Background="Transparent" DockPanel.Dock="Left" 
+                        Click="BtnNextSong_Click" Width="70">
+                    <Image Source="/Image/right.png"></Image>
+                </Button>
 
     <Button DockPanel.Dock="Right" x:Name="BtnAddSong" Click="BtnAddSong_Click" Height="50" Width="75" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1">Add</Button>
 
@@ -92,6 +93,7 @@
 
     <Slider DockPanel.Dock="Right" Width="160" Margin="-35" VerticalAlignment="Center" Minimum="0" Maximum="1" Value="{Binding Volume, ElementName=mediaElement}" />
 </DockPanel>
+            
 
 
         </Grid>

@@ -62,7 +62,7 @@ namespace ClientApp
 
         private void BtnAddSong_Click(object sender, RoutedEventArgs e)
         {
-            AddSongWindow addSongWindow = new AddSongWindow();
+            AddSongWindow addSongWindow = new AddSongWindow(context);
             addSongWindow.ShowDialog();
         }
 
@@ -73,21 +73,27 @@ namespace ClientApp
         public void UpdateTracksList()
         {
             model.TrackToFindClear();
-            using (MusicPlayerDbContext Context = new MusicPlayerDbContext())
+            //using (MusicPlayerDbContext Context = new MusicPlayerDbContext())
+            //{
+            var query = model.Tracks.AsQueryable();
+
+            //if (!string.IsNullOrEmpty(model.FindNameTrack))
+            //    query = query.Where(x => x.Name.Contains(model.FindNameTrack));
+
+            query = query.OrderBy(x => x.Id);
+
+            var tracks = query.ToArray();
+            foreach (var track in tracks)
             {
-                var query = model.Tracks.AsQueryable();
-
-                //if (!string.IsNullOrEmpty(model.FindNameTrack))
-                //    query = query.Where(x => x.Name.Contains(model.FindNameTrack));
-
-                query = query.OrderBy(x => x.Id);
-
-                var tracks = query.ToArray();
-                foreach (var track in tracks)
-                {
-                    model.TrackToFindAdd((Track)track);
-                }
+                model.TrackToFindAdd((Track)track);
+                
             }
+            DataGridBase.UpdateLayout();
+            //MessageBox.Show("Hide!");
+            //this.Hide();
+            //MessageBox.Show("Show!");
+            //this.Show();
+            // }
         }
 
         private void Button_ImageFailed(object sender, ExceptionRoutedEventArgs e)
