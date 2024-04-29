@@ -31,7 +31,7 @@
             <Button BorderBrush="Transparent" Background="Transparent" Grid.Row="1" Margin="13">
                 <Image Source="\Image\search.png"></Image>
             </Button>
-            <Button Grid.Row="2" Margin="13">
+            <Button BorderBrush="Transparent" Background="Transparent" Grid.Row="2" Margin="13">
                 <Image Source="\Image\list.png"></Image>
             </Button>
             <Button  Grid.Row="5" Margin="8" x:Name="BtnUpdate" Click="BtnUpdate_Click" Content="update">
