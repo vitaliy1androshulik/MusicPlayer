@@ -34,19 +34,18 @@ namespace ClientApp
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-            
-        }
-
-
         private void BtnPlayStop_Click(object sender, RoutedEventArgs e)
         {
             Play_Music();
         }
         private void Play_Music()
         {
+            if (DataGridBase.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a track to play.");
+                return;
+            }
+
             if (pause == true)
             {
                 Track selectedTrack = DataGridBase.SelectedItem as Track;
@@ -60,6 +59,7 @@ namespace ClientApp
                 pause = true;
             }
         }
+
         private void BtnAddSong_Click(object sender, RoutedEventArgs e)
         {
             AddSongWindow addSongWindow = new AddSongWindow(context);
@@ -124,6 +124,11 @@ namespace ClientApp
                 }
                 UpdateTracksList();
             }
+        }
+
+        private void List_click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
